@@ -1,31 +1,58 @@
 {
-  "name": "@lemaik/qrcode-svg",
-  "version": "1.2.0",
-  "description": "A simple QR Code generator in pure JavaScript",
-  "author": "papnkukn",
-  "license": "MIT",
-  "main": "lib/qrcode.js",
-  "scripts": {
-    "minify": "node minify.js",
-    "test": "nodeunit test"
-  },
-  "bin": {
-    "qrcode-svg": "bin/qrcode-svg.js"
-  },
-  "keywords": [
-    "qrcode",
-    "svg"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leMaik/qrcode-svg.git"
-  },
-  "bugs": {
-    "url": "https://github.com/leMaik/qrcode-svg/issues"
-  },
-  "homepage": "https://github.com/leMaik/qrcode-svg",
-  "devDependencies": {
-    "minify": "^4.1.3",
-    "nodeunit": "^0.11.3"
-  }
+    "name": "@pjaudiomv/qrcode-svg",
+    "version": "1.0.2",
+    "description": "A simple QR Code generator in pure JavaScript (browser, ESM)",
+    "author": "pjaudiomv",
+    "license": "MIT",
+    "type": "module",
+    "main": "dist/qrcode.js",
+    "module": "dist/qrcode.js",
+    "browser": "dist/qrcode.js",
+    "types": "./dist/qrcode.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/qrcode.d.ts",
+            "import": "./dist/qrcode.js",
+            "default": "./dist/qrcode.js"
+        }
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build": "vite build && cp src/qrcode.d.ts dist/qrcode.d.ts",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "prepublishOnly": "npm run lint && npm test && npm run build"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "qrcode",
+        "svg"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pjaudiomv/qrcode-svg.git"
+    },
+    "bugs": {
+        "url": "https://github.com/pjaudiomv/qrcode-svg/issues"
+    },
+    "homepage": "https://github.com/pjaudiomv/qrcode-svg",
+    "engines": {
+        "node": ">=22"
+    },
+    "devDependencies": {
+        "eslint": "^10.1.0",
+        "eslint-config-prettier": "^10.1.8",
+        "globals": "^17.4.0",
+        "prettier": "^3.8.1",
+        "vite": "^8.0.0",
+        "vitest": "^4.1.0"
+    }
 }
