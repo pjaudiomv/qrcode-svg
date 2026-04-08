@@ -153,19 +153,25 @@ Output with `defs` and `use` elements
 ```html
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id="container"></div>
-        <script type="module">
-            import QRCode from '@pjaudiomv/qrcode-svg'
-            const qrcode = new QRCode({
-                content: 'Hello World!',
-                container: 'svg-viewbox',
-                join: true,
-            })
-            document.getElementById('container').innerHTML = qrcode.svg()
-        </script>
-    </body>
+<body>
+<div id="container"></div>
+<script type="module">
+    import QRCode from 'https://cdn.jsdelivr.net/npm/@pjaudiomv/qrcode-svg/dist/qrcode.js'
+    const qrcode = new QRCode({
+        content: 'Hello World!',
+        container: 'svg-viewbox',
+        join: true,
+    })
+    document.getElementById('container').innerHTML = qrcode.svg()
+</script>
+</body>
 </html>
+```
+
+When using a bundler (Vite, Webpack, etc.), you can use the bare specifier instead:
+
+```javascript
+import QRCode from '@pjaudiomv/qrcode-svg'
 ```
 
 ## Credits & lineage
