@@ -1,11 +1,6 @@
 export type ErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H'
 
-export type Container =
-    | 'svg'
-    | 'svg-viewbox'
-    | 'g'
-    | 'none'
-    | 'path-data'
+export type Container = 'svg' | 'svg-viewbox' | 'g' | 'none' | 'path-data'
 
 export interface QRCodeOptions {
     /** QR Code content (required). */
@@ -44,6 +39,18 @@ export interface SvgOptions {
 
 export default class QRCode {
     constructor(options: QRCodeOptions | string)
-    options: Required<Pick<QRCodeOptions, 'padding' | 'width' | 'height' | 'color' | 'background' | 'ecl' | 'typeNumber'>> & QRCodeOptions
+    options: Required<
+        Pick<
+            QRCodeOptions,
+            | 'padding'
+            | 'width'
+            | 'height'
+            | 'color'
+            | 'background'
+            | 'ecl'
+            | 'typeNumber'
+        >
+    > &
+        QRCodeOptions
     svg(options?: SvgOptions): string
 }

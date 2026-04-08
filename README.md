@@ -1,6 +1,6 @@
 ## Introduction
 
-A browser-only ES module for generating SVG QR codes in pure JavaScript.
+An ES module for generating SVG QR codes in pure JavaScript. Works in the browser and Node.js (>=22).
 
 - pure JavaScript, zero dependencies
 - ESM only
@@ -47,13 +47,14 @@ const svg = qrcode.svg()
 - **height** - QR Code height in pixels
 - **color** - color of modules (squares), color name or hex string, e.g. `#000000`
 - **background** - color of background, color name or hex string, e.g. `white`
-- **ecl** - error correction level: `L`, `M`, `H`, `Q`
+- **ecl** - error correction level: `L`, `M`, `Q`, `H`
 - **join** - join modules (squares) into one shape, into the SVG `path` element, **recommended** for web and responsive use, default: `false`
 - **predefined** - to create a squares as pattern, then populate the canvas, default: `false`, see the output examples below
 - **pretty** - apply indents and new lines, default: `true`
 - **swap** - swap X and Y modules, only if you have issues with some QR readers, default: `false`
 - **xmlDeclaration** - prepend XML declaration to the SVG document, i.e. `<?xml version="1.0" standalone="yes"?>`, default: `true`
 - **container** - wrapping element, default: `svg`, see below
+- **typeNumber** - QR version (1–40), determined automatically if not set
 
 **Container options:**
 
@@ -61,7 +62,7 @@ const svg = qrcode.svg()
 - **svg-viewbox** - populate squares in a SVG document with `viewBox` attribute, **recommended** for responsive web pages
 - **g** - put squares in `g` element, useful when you need to put multiple QR Codes in a single SVG document
 - **none** - no wrapper
-- **path-data** - returns only the raw SVG path data string (requires `join: true`)
+- **path-data** - returns only the raw SVG path data string (join mode is applied automatically)
 
 ## SVG output
 
@@ -155,7 +156,7 @@ Output with `defs` and `use` elements
     <body>
         <div id="container"></div>
         <script type="module">
-            import QRCode from './dist/qrcode.js'
+            import QRCode from '@pjaudiomv/qrcode-svg'
             const qrcode = new QRCode({
                 content: 'Hello World!',
                 container: 'svg-viewbox',
@@ -169,7 +170,7 @@ Output with `defs` and `use` elements
 
 ## Credits & lineage
 
-This package is a modernized (ESM-only, browser-only, Vite-built, typed) fork of the `qrcode-svg` library. Full lineage:
+This package is a modernized (ESM-only, browser and Node.js, Vite-built, typed) fork of the `qrcode-svg` library. Full lineage:
 
 - Originally created by [papnkukn/qrcode-svg](https://github.com/papnkukn/qrcode-svg).
 - Forked and deobfuscated by [leMaik/qrcode-svg](https://github.com/leMaik/qrcode-svg/)

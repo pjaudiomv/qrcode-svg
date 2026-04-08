@@ -22,11 +22,4 @@ export default [
             'prefer-const': ['warn'],
         },
     },
-    {
-        files: ['src/qrcode.js'],
-        rules: {
-            'no-var': 'off',
-            'prefer-const': 'off',
-        },
-    },
 ]

@@ -1,6 +1,6 @@
 {
     "name": "@pjaudiomv/qrcode-svg",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A simple QR Code generator in pure JavaScript (browser, ESM)",
     "author": "pjaudiomv",
     "license": "MIT",
@@ -26,7 +26,7 @@
         "test:watch": "vitest",
         "lint": "eslint .",
         "format": "prettier --write .",
-        "prepublishOnly": "npm run lint && npm test && npm run build"
+        "all": "npm run format & npm run lint && npm test && npm run build"
     },
     "publishConfig": {
         "access": "public"

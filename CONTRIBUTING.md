@@ -17,12 +17,12 @@ npm install
 
 ## Development
 
-| Command              | What it does                              |
-| -------------------- | ----------------------------------------- |
-| `npm test`           | Run the Vitest suite once                 |
-| `npm run test:watch` | Run Vitest in watch mode                  |
-| `npm run lint`       | Lint the project with ESLint              |
-| `npm run format`     | Format the project with Prettier          |
+| Command              | What it does                               |
+| -------------------- | ------------------------------------------ |
+| `npm test`           | Run the Vitest suite once                  |
+| `npm run test:watch` | Run Vitest in watch mode                   |
+| `npm run lint`       | Lint the project with ESLint               |
+| `npm run format`     | Format the project with Prettier           |
 | `npm run build`      | Build `dist/qrcode.js` via Vite (lib mode) |
 
 Source lives in `src/qrcode.js` (ESM). Tests live in `test/`. The build output is `dist/qrcode.js` and should **not** be committed as part of a PR — CI / `prepublishOnly` will produce it.
