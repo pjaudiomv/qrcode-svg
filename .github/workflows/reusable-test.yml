@@ -7,7 +7,7 @@ permissions:
     contents: read
 
 jobs:
-    test-ts:
+    test-js:
         runs-on: ubuntu-24.04
         steps:
             - name: checkout 🛒
@@ -16,9 +16,8 @@ jobs:
               uses: actions/setup-node@v6
               with:
                   node-version: 22
-                  cache: 'npm'
             - name: install dependencies 📦
-              run: npm ci
+              run: npm install
             - name: lint 🧹
               run: npm run lint
             - name: tests 🧪
