@@ -1,6 +1,6 @@
 {
     "name": "@pjaudiomv/qrcode-svg",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A simple QR Code generator in pure JavaScript (browser, ESM)",
     "author": "pjaudiomv",
     "license": "MIT",
@@ -17,8 +17,7 @@
         }
     },
     "files": [
-        "dist",
-        "src"
+        "dist"
     ],
     "sideEffects": false,
     "scripts": {

@@ -9,7 +9,7 @@ export default defineConfig({
             formats: ['es'],
             fileName: () => 'qrcode.js',
         },
-        sourcemap: true,
+        sourcemap: false,
         minify: 'oxc',
     },
     test: {
