@@ -167,20 +167,18 @@ Output with `defs` and `use` elements
 </html>
 ```
 
-## Thanks
+## Credits & lineage
 
-Thanks to [davidshimjs](https://github.com/davidshimjs/qrcodejs) for the base library.
+This package is a modernized (ESM-only, browser-only, Vite-built, typed) fork of the `qrcode-svg` library. Full lineage:
 
-Thanks to [Kazuhiko Arase](http://www.d-project.com/) for the original QR Code in JavaScript algorithm.
+- Originally created by [papnkukn/qrcode-svg](https://github.com/papnkukn/qrcode-svg).
+- Forked and deobfuscated by [leMaik/qrcode-svg](https://github.com/leMaik/qrcode-svg/)
+- This fork (`@pjaudiomv/qrcode-svg`) drops the Node CLI, `save()`/`fs` usage, and the ASCII helper; converts to ESM; adds Vite + Vitest + TypeScript declarations.
 
-Thanks to all contributors on the GitHub.
+Thanks to [davidshimjs](https://github.com/davidshimjs/qrcodejs) for the base library, and to [Kazuhiko Arase](http://www.d-project.com/) for the original QR Code in JavaScript algorithm.
 
 ## Legal notice
 
-```
-Licensed under the MIT license:
-http://www.opensource.org/licenses/mit-license.php
+Licensed under the [MIT license](https://opensource.org/license/mit).
 
-The word "QR Code" is registered trademark of DENSO WAVE INCORPORATED
-http://www.denso-wave.com/qrcode/faqpatent-e.html
-```
+The word "QR Code" is a registered trademark of [DENSO WAVE INCORPORATED](https://www.qrcode.com/en/patent.html).
