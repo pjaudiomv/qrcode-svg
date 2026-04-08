@@ -1,0 +1,48 @@
+name: Publish NPM
+
+on:
+    push:
+        tags: ['v*']
+
+jobs:
+    tests:
+        uses: ./.github/workflows/reusable-test.yml
+
+    publish:
+        needs: [tests]
+        runs-on: ubuntu-24.04
+        permissions:
+            contents: read
+            id-token: write
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v6
+              with:
+                  node-version: '22.x'
+                  registry-url: 'https://registry.npmjs.org'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build project
+              run: npm run build
+
+            - name: Update version from tag
+              run: |
+                  TAG_NAME=${GITHUB_REF#refs/tags/}
+                  VERSION=${TAG_NAME#v}  # Remove 'v' prefix if present
+                  echo "Setting version to: $VERSION"
+
+                  # Update version in package.json
+                  npm version $VERSION --no-git-tag-version --allow-same-version
+
+                  # Show the updated package.json version
+                  echo "Updated package.json version:"
+                  npm version --json
+
+            - name: Publish to npm
+              run: npm publish --provenance --access public
